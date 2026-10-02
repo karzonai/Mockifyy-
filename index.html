@@ -1,0 +1,4489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="dWNNOaepcIAJF3ozS8TCj9M7VZnxmHorbATHVY5FicA" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="Mockifyy - Premium MCQ Practice & Mock Test Platform">
+<title>Mockifyy — Study Smarter</title>
+
+<style>
+/* ============================================================
+   MOCKIFYY — PREMIUM BLACK & WHITE DESIGN SYSTEM
+   ============================================================ */
+
+:root {
+    --bg: #050505;
+    --bg-soft: #0b0b0b;
+    --panel: #101010;
+    --panel-2: #151515;
+    --panel-3: #1b1b1b;
+    --white: #ffffff;
+    --text: #f5f5f5;
+    --muted: #969696;
+    --muted-2: #6e6e6e;
+    --line: rgba(255,255,255,.10);
+    --line-strong: rgba(255,255,255,.18);
+    --success: #e8e8e8;
+    --danger: #ffffff;
+    --shadow: 0 24px 70px rgba(0,0,0,.55);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 15px;
+    --radius-sm: 11px;
+    --sidebar: 270px;
+    --transition: .25s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,.055), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,.035), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+button,
+a,
+select {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app {
+    min-height: 100vh;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* ============================================================
+   LOGIN SCREEN
+   ============================================================ */
+
+.auth-screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(90px);
+    background: rgba(255,255,255,.05);
+    pointer-events: none;
+}
+
+.auth-glow.one {
+    top: -160px;
+    left: -120px;
+}
+
+.auth-glow.two {
+    bottom: -180px;
+    right: -120px;
+}
+
+.auth-card {
+    width: min(460px, 100%);
+    background: rgba(15,15,15,.92);
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    padding: 34px;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(20px);
+    animation: authIn .6s ease both;
+}
+
+@keyframes authIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 30px;
+}
+
+.brand-mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: #fff;
+    color: #000;
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+    font-weight: 900;
+    box-shadow: 0 10px 35px rgba(255,255,255,.10);
+}
+
+.brand-name {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -.8px;
+}
+
+.brand-subtitle {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.auth-title {
+    font-size: clamp(27px, 7vw, 38px);
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    margin-bottom: 9px;
+}
+
+.auth-description {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 27px;
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #090909;
+    border: 1px solid var(--line);
+    padding: 4px;
+    border-radius: 13px;
+    margin-bottom: 22px;
+}
+
+.auth-tab {
+    background: transparent;
+    color: var(--muted);
+    padding: 10px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.auth-tab.active {
+    background: #fff;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    color: #cfcfcf;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    outline: none;
+    color: #fff;
+    background: #090909;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    border-color: rgba(255,255,255,.42);
+    box-shadow: 0 0 0 3px rgba(255,255,255,.045);
+}
+
+.primary-btn {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 13px;
+    background: #fff;
+    color: #000;
+    font-weight: 850;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.primary-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 35px rgba(255,255,255,.09);
+}
+
+.primary-btn:active {
+    transform: scale(.985);
+}
+
+.auth-note {
+    text-align: center;
+    color: var(--muted-2);
+    font-size: 11px;
+    margin-top: 18px;
+    line-height: 1.6;
+}
+
+.demo-login {
+    margin-top: 12px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.auth-error {
+    color: #fff;
+    font-size: 12px;
+    min-height: 18px;
+    margin: 3px 0 10px;
+}
+
+/* ============================================================
+   APP SHELL
+   ============================================================ */
+
+.app-shell {
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--sidebar);
+    height: 100vh;
+    background: rgba(8,8,8,.97);
+    border-right: 1px solid var(--line);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    transition: transform .3s ease;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 7px 9px 25px;
+}
+
+.sidebar-brand .brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    font-size: 18px;
+}
+
+.sidebar-brand .brand-name {
+    font-size: 19px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.nav-section-label {
+    color: #575757;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+    padding: 13px 11px 8px;
+}
+
+.nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 11px;
+    border-radius: 12px;
+    background: transparent;
+    color: #999;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 3px;
+    transition: var(--transition);
+}
+
+.nav-item:hover {
+    color: #fff;
+    background: #121212;
+}
+
+.nav-item.active {
+    background: #fff;
+    color: #000;
+}
+
+.nav-icon {
+    width: 19px;
+    height: 19px;
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    flex: 0 0 19px;
+}
+
+.nav-text {
+    font-size: 13px;
+    font-weight: 750;
+}
+
+.sidebar-footer {
+    border-top: 1px solid var(--line);
+    padding: 15px 9px 3px;
+}
+
+.powered {
+    color: #666;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.founder {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 750;
+    color: #ddd;
+}
+
+.logout-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 11px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    text-align: left;
+}
+
+.logout-btn:hover {
+    color: #fff;
+    background: #151515;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main {
+    margin-left: var(--sidebar);
+    min-height: 100vh;
+    padding: 22px 25px 50px;
+}
+
+.topbar {
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #101010;
+    color: #fff;
+    cursor: pointer;
+}
+
+.page-kicker {
+    color: #6e6e6e;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+    font-weight: 850;
+}
+
+.page-title {
+    font-size: 22px;
+    font-weight: 850;
+    letter-spacing: -.8px;
+    margin-top: 3px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #0d0d0d;
+}
+
+.lang-btn {
+    padding: 7px 10px;
+    border-radius: 8px;
+    background: transparent;
+    color: #777;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.lang-btn.active {
+    background: #fff;
+    color: #000;
+}
+
+.profile-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: #161616;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+}
+
+/* ============================================================
+   PAGE SYSTEM
+   ============================================================ */
+
+.page {
+    display: none;
+    animation: pageIn .35s ease both;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================
+   DASHBOARD HERO
+   ============================================================ */
+
+.hero {
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    background:
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,.09), transparent 30%),
+        linear-gradient(135deg, #111, #080808 70%);
+    box-shadow: var(--shadow);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,.035);
+    padding: 7px 10px;
+    border-radius: 99px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #bbb;
+    margin-bottom: 18px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(255,255,255,.7);
+}
+
+.quote {
+    font-size: clamp(26px, 4.4vw, 43px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    font-weight: 900;
+    max-width: 660px;
+}
+
+.quote-author {
+    margin-top: 13px;
+    color: #777;
+    font-size: 12px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    min-height: 43px;
+    padding: 0 17px;
+    border-radius: 11px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 800;
+    transition: var(--transition);
+}
+
+.btn-white {
+    background: #fff;
+    color: #000;
+}
+
+.btn-dark {
+    background: rgba(255,255,255,.04);
+    color: #fff;
+    border: 1px solid var(--line);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.hero-art {
+    position: absolute;
+    right: 5%;
+    bottom: -20px;
+    width: 230px;
+    height: 230px;
+    opacity: .95;
+}
+
+.book {
+    position: absolute;
+    left: 35px;
+    bottom: 32px;
+    width: 140px;
+    height: 105px;
+    transform: rotate(-10deg);
+    border: 2px solid #fff;
+    border-radius: 6px 14px 12px 5px;
+    background: linear-gradient(135deg, #1a1a1a, #080808);
+    box-shadow: 20px 25px 50px rgba(0,0,0,.7);
+    animation: floatBook 4s ease-in-out infinite;
+}
+
+.book::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 10px;
+    width: 2px;
+    height: 82px;
+    background: #fff;
+}
+
+.book::after {
+    content: "STUDY";
+    position: absolute;
+    left: 29px;
+    top: 31px;
+    font-size: 16px;
+    font-weight: 950;
+    letter-spacing: 1px;
+}
+
+@keyframes floatBook {
+    0%,100% {
+        transform: rotate(-10deg) translateY(0);
+    }
+    50% {
+        transform: rotate(-7deg) translateY(-11px);
+    }
+}
+
+.pencil {
+    position: absolute;
+    right: 15px;
+    bottom: 48px;
+    width: 120px;
+    height: 13px;
+    background: #fff;
+    border-radius: 20px;
+    transform: rotate(-42deg);
+    animation: pencilFloat 4s ease-in-out infinite;
+}
+
+.pencil::after {
+    content: "";
+    position: absolute;
+    right: -17px;
+    top: 0;
+    border-left: 20px solid #fff;
+    border-top: 6.5px solid transparent;
+    border-bottom: 6.5px solid transparent;
+}
+
+@keyframes pencilFloat {
+    0%,100% {
+        transform: rotate(-42deg) translate(0);
+    }
+    50% {
+        transform: rotate(-37deg) translate(-4px,-6px);
+    }
+}
+
+.spark {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    animation: spark 3s infinite ease-in-out;
+}
+
+.spark.s1 {
+    top: 35px;
+    right: 80px;
+}
+
+.spark.s2 {
+    top: 85px;
+    right: 25px;
+    animation-delay: .7s;
+}
+
+.spark.s3 {
+    top: 15px;
+    right: 150px;
+    animation-delay: 1.2s;
+}
+
+@keyframes spark {
+    0%,100% {
+        opacity: .15;
+        transform: translateY(0) scale(.7);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1);
+    }
+}
+
+/* ============================================================
+   DASHBOARD CARDS
+   ============================================================ */
+
+.section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 28px 2px 13px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 850;
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.stat-card {
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: #0d0d0d;
+    padding: 17px;
+    min-height: 108px;
+}
+
+.stat-icon {
+    color: #777;
+    font-size: 13px;
+}
+
+.stat-value {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-top: 15px;
+}
+
+.stat-label {
+    color: #686868;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.mode-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.mode-card {
+    min-height: 175px;
+    border: 1px solid var(--line);
+    border-radius: 19px;
+    padding: 20px;
+    background: linear-gradient(145deg, #121212, #0a0a0a);
+    cursor: pointer;
+    transition: .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mode-card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-3px);
+}
+
+.mode-card::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    right: -70px;
+    bottom: -70px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.mode-number {
+    color: #555;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.mode-icon {
+    font-size: 25px;
+    margin-top: 12px;
+}
+
+.mode-title {
+    font-size: 17px;
+    font-weight: 900;
+    margin-top: 9px;
+}
+
+.mode-text {
+    color: #777;
+    font-size: 11px;
+    line-height: 1.5;
+    max-width: 360px;
+    margin-top: 5px;
+}
+
+/* ============================================================
+   PRACTICE / TEST SELECTION
+   ============================================================ */
+
+.selector-panel {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: #0d0d0d;
+    padding: 22px;
+}
+
+.selector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.select-box label {
+    display: block;
+    color: #777;
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.select-box select {
+    width: 100%;
+    height: 46px;
+    border: 1px solid var(--line);
+    background: #090909;
+    color: #fff;
+    border-radius: 11px;
+    padding: 0 12px;
+    outline: none;
+}
+
+.selector-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.question-count {
+    width: 90px;
+    height: 43px;
+    border: 1px solid var(--line);
+    background: #090909;
+    color: #fff;
+    border-radius: 11px;
+    padding: 0 10px;
+}
+
+.chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.chapter-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #0d0d0d;
+    padding: 17px;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.chapter-card:hover,
+.chapter-card.selected {
+    border-color: rgba(255,255,255,.4);
+    background: #151515;
+}
+
+.chapter-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.chapter-index {
+    width: 27px;
+    height: 27px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    color: #888;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.chapter-status {
+    color: #666;
+    font-size: 9px;
+}
+
+.chapter-name {
+    margin-top: 17px;
+    font-size: 14px;
+    font-weight: 850;
+}
+
+.chapter-meta {
+    margin-top: 5px;
+    color: #666;
+    font-size: 10px;
+}
+
+/* ============================================================
+   TEST RUNNER
+   ============================================================ */
+
+.test-page {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.test-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.test-progress-wrap {
+    flex: 1;
+}
+
+.test-progress-label {
+    color: #777;
+    font-size: 10px;
+    margin-bottom: 7px;
+}
+
+.progress-bar {
+    height: 5px;
+    background: #1a1a1a;
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #fff;
+    transition: width .3s ease;
+}
+
+.timer {
+    min-width: 100px;
+    text-align: center;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: #101010;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer.warning {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+}
+
+.question-card {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: #0d0d0d;
+    padding: 26px;
+    box-shadow: var(--shadow);
+}
+
+.question-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #666;
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+
+.question-number {
+    color: #aaa;
+    font-weight: 800;
+}
+
+.question-text {
+    font-size: clamp(19px, 3vw, 27px);
+    line-height: 1.35;
+    letter-spacing: -.6px;
+    font-weight: 800;
+    margin-bottom: 22px;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+}
+
+.option {
+    width: 100%;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 10px 13px;
+    background: #090909;
+    color: #ddd;
+    text-align: left;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.option:hover {
+    border-color: rgba(255,255,255,.3);
+    background: #121212;
+}
+
+.option.selected {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+}
+
+.option-letter {
+    width: 32px;
+    height: 32px;
+    border: 1px solid currentColor;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.option-text {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.test-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.test-controls .btn {
+    min-width: 120px;
+}
+
+.question-dots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 17px;
+}
+
+.q-dot {
+    width: 27px;
+    height: 27px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #0d0d0d;
+    color: #666;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.q-dot.current {
+    background: #fff;
+    color: #000;
+}
+
+.q-dot.answered {
+    border-color: #aaa;
+    color: #ddd;
+}
+
+/* ============================================================
+   RESULT SCREEN
+   ============================================================ */
+
+.result-card {
+    max-width: 700px;
+    margin: 30px auto;
+    border: 1px solid var(--line);
+    border-radius: 25px;
+    background: #0d0d0d;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.result-ring {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    border: 8px solid #202020;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.result-ring::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(35deg);
+}
+
+.result-percent {
+    font-size: 30px;
+    font-weight: 950;
+}
+
+.result-title {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.result-text {
+    color: #777;
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.result-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.result-stat {
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 14px 8px;
+}
+
+.result-stat strong {
+    display: block;
+    font-size: 21px;
+}
+
+.result-stat span {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    margin-top: 3px;
+}
+
+/* ============================================================
+   PROFILE PAGE
+   ============================================================ */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: #0d0d0d;
+    padding: 22px;
+}
+
+.avatar-large {
+    width: 70px;
+    height: 70px;
+    border-radius: 21px;
+    background: #fff;
+    color: #000;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-weight: 950;
+}
+
+.profile-name {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.profile-email {
+    color: #666;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    margin-top: 15px;
+}
+
+.setting-card {
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    background: #0d0d0d;
+    padding: 18px;
+}
+
+.setting-title {
+    font-size: 13px;
+    font-weight: 850;
+}
+
+.setting-description {
+    color: #666;
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.setting-row:last-child {
+    border-bottom: 0;
+}
+
+.setting-label {
+    color: #bbb;
+    font-size: 11px;
+}
+
+.setting-value {
+    color: #777;
+    font-size: 11px;
+    text-align: right;
+}
+
+/* ============================================================
+   PRIVACY PAGE
+   ============================================================ */
+
+.policy-card {
+    max-width: 900px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: #0d0d0d;
+    padding: 25px;
+}
+
+.policy-card h2 {
+    font-size: 17px;
+    margin: 23px 0 7px;
+}
+
+.policy-card h2:first-child {
+    margin-top: 0;
+}
+
+.policy-card p {
+    color: #818181;
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.policy-card ul {
+    margin: 8px 0 0 17px;
+    color: #818181;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translate(-50%, 30px);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 500;
+    background: #fff;
+    color: #000;
+    border-radius: 12px;
+    padding: 11px 15px;
+    font-size: 11px;
+    font-weight: 850;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
+    transition: .3s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ============================================================
+   MOBILE OVERLAY
+   ============================================================ */
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 90;
+    backdrop-filter: blur(2px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1050px) {
+    :root {
+        --sidebar: 235px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chapter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .sidebar {
+        transform: translateX(-105%);
+        width: min(285px, 86vw);
+        box-shadow: 25px 0 80px rgba(0,0,0,.6);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.open {
+        display: block;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 14px 13px 40px;
+    }
+
+    .topbar {
+        height: 52px;
+        margin-bottom: 16px;
+    }
+
+    .mobile-menu-btn {
+        display: grid;
+        place-items: center;
+    }
+
+    .page-title {
+        font-size: 19px;
+    }
+
+    .hero {
+        min-height: 365px;
+        padding: 23px;
+    }
+
+    .hero-art {
+        right: 1%;
+        bottom: -8px;
+        opacity: .5;
+        transform: scale(.85);
+    }
+
+    .quote {
+        font-size: 30px;
+        letter-spacing: -1.3px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mode-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .selector-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chapter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .question-card {
+        padding: 18px;
+    }
+
+    .question-text {
+        font-size: 20px;
+    }
+
+    .test-top {
+        align-items: stretch;
+    }
+
+    .timer {
+        min-width: 90px;
+    }
+}
+
+@media (max-width: 440px) {
+    .auth-card {
+        padding: 24px 18px;
+        border-radius: 22px;
+    }
+
+    .topbar-right .profile-mini {
+        display: none;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .stats-grid {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 13px;
+    }
+
+    .result-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.light {
+    --bg: #f5f6f8; --bg-soft:#ffffff; --panel:#ffffff; --panel-2:#f0f1f4; --panel-3:#e5e7eb;
+    --text:#111827; --muted:#5b6472; --muted-2:#7b8492; --line:rgba(17,24,39,.12);
+    --line-strong:rgba(17,24,39,.22); --shadow:0 24px 70px rgba(17,24,39,.12);
+}
+body.light .admin-builder{background:linear-gradient(145deg,#fff,#f3f4f6);}
+body.light .admin-form input,body.light .admin-form textarea,body.light .admin-form select{background:#fff;color:#111827;border-color:#cbd5e1;}
+body.light .btn-dark{background:#111827;color:#fff;}
+body.light .sidebar,body.light .topbar{background:var(--panel);}
+.theme-toggle{border:1px solid var(--line-strong);background:var(--panel-2);color:var(--text);border-radius:999px;padding:10px 13px;font-weight:800;cursor:pointer;}
+.select-box select:disabled{opacity:.65;cursor:not-allowed;}
+@media(max-width:680px){.selector-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.select-box{min-width:0}.select-box select{max-width:100%;}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+<style>
+.admin-builder{border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:22px;background:linear-gradient(145deg,#111,#080808);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.admin-builder-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:22px}.admin-builder h3{font-size:26px;margin:9px 0 5px}.admin-builder p{color:#a7a7a7;margin:0}.admin-badge{font-size:11px;letter-spacing:2px;border:1px solid #444;border-radius:99px;padding:6px 10px;color:#ddd}.admin-tip{font-size:12px;color:#bbb;border:1px solid #333;border-radius:99px;padding:9px 12px}.admin-form label{display:flex;flex-direction:column;gap:8px;color:#ddd;font-size:13px}.admin-form input,.admin-form textarea,.admin-form select{width:100%;box-sizing:border-box;background:#161616;color:#fff;border:1px solid #383838;border-radius:12px;padding:13px;font:inherit;outline:none}.admin-form input:focus,.admin-form textarea:focus,.admin-form select:focus{border-color:#fff}.admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:16px}.options-heading{display:flex;justify-content:space-between;align-items:center;margin:18px 0 12px}.options-heading h4{margin:0;font-size:15px}.options-heading span,.optional{color:#888;font-size:12px}.admin-save-btn{margin-top:6px;padding:14px 18px}.admin-status{margin-top:14px!important;color:#b7f7c0!important;min-height:20px}.admin-form textarea{resize:vertical}@media(max-width:600px){.admin-builder{padding:16px}.admin-grid{grid-template-columns:1fr}.admin-builder-top{display:block}.admin-tip{display:inline-block;margin-top:14px}}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     AUTH SCREEN
+     ============================================================ -->
+
+<section id="authScreen" class="auth-screen">
+    <div class="auth-glow one"></div>
+    <div class="auth-glow two"></div>
+
+    <div class="auth-card">
+        <div class="brand-lockup">
+            <div class="brand-mark">M</div>
+            <div>
+                <div class="brand-name">Mockifyy</div>
+                <div class="brand-subtitle">Practice. Test. Improve.</div>
+            </div>
+        </div>
+
+        <h1 class="auth-title" id="authTitle">Welcome back.</h1>
+        <p class="auth-description" id="authDescription">
+            Your premium space for MCQ practice and mock tests.
+        </p>
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="loginTab" type="button">Login</button>
+            <button class="auth-tab" id="registerTab" type="button">Create account</button>
+        </div>
+
+        <form id="authForm">
+            <div class="form-group">
+                <label class="form-label" for="authName">Name</label>
+                <input
+                    id="authName"
+                    class="form-input"
+                    type="text"
+                    placeholder="Your name"
+                    autocomplete="name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="authEmail">Email</label>
+                <input
+                    id="authEmail"
+                    class="form-input"
+                    type="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="authPassword">Password</label>
+                <input
+                    id="authPassword"
+                    class="form-input"
+                    type="password"
+                    placeholder="Minimum 6 characters"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <div id="authError" class="auth-error"></div>
+
+            <button class="primary-btn" id="authSubmit" type="submit">
+                Login to Mockifyy
+            </button>
+        </form>
+
+        <button class="demo-login" id="googleLogin" type="button">
+            Continue with Google
+        </button>
+
+    </div>
+</section>
+
+<!-- ============================================================
+     APP SHELL
+     ============================================================ -->
+
+<section id="appShell" class="app-shell hidden">
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-mark">M</div>
+            <div>
+                <div class="brand-name">Mockifyy</div>
+                <div class="brand-subtitle">Study smarter.</div>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-section-label" data-i18n="menu">Menu</div>
+
+            <button
+                class="nav-item active"
+                data-page="dashboard"
+                type="button"
+            >
+                <span class="nav-icon">⌂</span>
+                <span class="nav-text" data-i18n="dashboard">Dashboard</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="practice"
+                type="button"
+            >
+                <span class="nav-icon">◫</span>
+                <span class="nav-text" data-i18n="practice">Chapter Practice</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="test"
+                type="button"
+            >
+                <span class="nav-icon">◉</span>
+                <span class="nav-text" data-i18n="testMode">Test Mode</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="pyq"
+                type="button"
+            >
+                <span class="nav-icon">▣</span>
+                <span class="nav-text">PYQ Test</span>
+            </button>
+
+            <div class="nav-section-label" data-i18n="account">Account</div>
+
+            <button
+                class="nav-item"
+                data-page="admin"
+                type="button"
+                style="display:none;"
+                title="Only admin can add questions"
+            >
+                <span class="nav-icon">✚</span>
+                <span class="nav-text">Admin Question Panel</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="profile"
+                type="button"
+            >
+                <span class="nav-icon">●</span>
+                <span class="nav-text" data-i18n="profile">Profile</span>
+            </button>
+
+            <button
+                class="nav-item"
+                data-page="privacy"
+                type="button"
+            >
+                <span class="nav-icon">◇</span>
+                <span class="nav-text" data-i18n="privacy">Privacy Policy</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="powered">Powered by Mockifyy</div>
+            <div class="founder">Founder · Ved Prakash</div>
+            <button class="logout-btn" id="logoutBtn" type="button">
+                <span data-i18n="logout">↪ Logout</span>
+            </button>
+        </div>
+
+    </aside>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+                <button
+                    id="mobileMenuBtn"
+                    class="mobile-menu-btn"
+                    type="button"
+                    aria-label="Open menu"
+                >
+                    ☰
+                </button>
+
+                <div>
+                    <div class="page-kicker">Mockifyy</div>
+                    <div id="pageTitle" class="page-title">Dashboard</div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="language-switcher">
+                    <button
+                        class="lang-btn active"
+                        data-lang="en"
+                        type="button"
+                    >
+                        EN
+                    </button>
+                    <button
+                        class="lang-btn"
+                        data-lang="hi"
+                        type="button"
+                    >
+                        HI
+                    </button>
+                </div>
+                <button id="themeToggle" class="theme-toggle" type="button" title="Toggle light/dark mode">☀ Light</button>
+
+                <button
+                    id="profileMini"
+                    class="profile-mini"
+                    type="button"
+                >
+                    V
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- ======================================================
+             DASHBOARD
+             ====================================================== -->
+
+        <section id="page-dashboard" class="page active">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-eyebrow">
+                        <span class="dot"></span>
+                        <span data-i18n="dailyMotivation">Daily Motivation</span>
+                    </div>
+
+                    <div id="quoteText" class="quote">
+                        Success is built one focused question at a time.
+                    </div>
+
+                    <div id="quoteAuthor" class="quote-author">
+                        — Mockifyy
+                    </div>
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="btn btn-white"
+                            data-go="practice"
+                            type="button"
+                            data-i18n="startPractice"
+                        >
+                            Start Practice
+                        </button>
+
+                        <button
+                            class="btn btn-dark"
+                            data-go="test"
+                            type="button"
+                            data-i18n="takeMock"
+                        >
+                            Take Mock Test
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="spark s1"></div>
+                    <div class="spark s2"></div>
+                    <div class="spark s3"></div>
+                    <div class="book"></div>
+                    <div class="pencil"></div>
+                </div>
+
+            </div>
+
+            <div class="section-head">
+                <div>
+                    <div class="section-title" data-i18n="yourProgress">
+                        Your Progress
+                    </div>
+                    <div class="section-subtitle" data-i18n="progressSubtitle">
+                        Keep showing up. Small wins become big results.
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">◌</div>
+                    <div id="statQuestions" class="stat-value">0</div>
+                    <div class="stat-label" data-i18n="questionsSolved">
+                        Questions Solved
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">✓</div>
+                    <div id="statAccuracy" class="stat-value">0%</div>
+                    <div class="stat-label" data-i18n="accuracy">
+                        Accuracy
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">◷</div>
+                    <div id="statTests" class="stat-value">0</div>
+                    <div class="stat-label" data-i18n="testsCompleted">
+                        Tests Completed
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">✦</div>
+                    <div id="statStreak" class="stat-value">0</div>
+                    <div class="stat-label" data-i18n="dayStreak">
+                        Day Streak
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section-head">
+                <div>
+                    <div class="section-title" data-i18n="chooseMode">
+                        Choose your mode
+                    </div>
+                    <div class="section-subtitle" data-i18n="chooseModeSub">
+                        Practice without pressure or simulate the real test.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mode-grid">
+
+                <article class="mode-card" data-go="practice">
+                    <div class="mode-number">01</div>
+                    <div class="mode-icon">◫</div>
+                    <div class="mode-title" data-i18n="chapterPracticeTitle">
+                        Chapter-wise Practice
+                    </div>
+                    <div class="mode-text" data-i18n="chapterPracticeText">
+                        Pick a subject and chapter, then practice MCQs at your own pace.
+                    </div>
+                </article>
+
+                <article class="mode-card" data-go="test">
+                    <div class="mode-number">02</div>
+                    <div class="mode-icon">◉</div>
+                    <div class="mode-title" data-i18n="testModeTitle">
+                        Test Mode
+                    </div>
+                    <div class="mode-text" data-i18n="testModeText">
+                        Random questions, countdown timer and a score at the end.
+                    </div>
+                </article>
+
+                <article class="mode-card" data-go="pyq">
+                    <div class="mode-number">03</div>
+                    <div class="mode-icon">▣</div>
+                    <div class="mode-title">PYQ Test</div>
+                    <div class="mode-text">Board, class, subject और year के अनुसार previous-year questions.</div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================================
+             PRACTICE
+             ====================================================== -->
+
+        <section id="page-practice" class="page">
+
+            <div class="section-head">
+                <div>
+                    <div class="section-title" data-i18n="practiceHeading">
+                        Chapter-wise Practice
+                    </div>
+                    <div class="section-subtitle" data-i18n="practiceSub">
+                        Select your subject and chapter.
+                    </div>
+                </div>
+            </div>
+
+            <div class="selector-panel">
+
+                <div class="selector-grid">
+
+                    <div class="select-box">
+                        <label data-i18n="classLabel">Class</label>
+                        <select id="practiceClass">
+                            <option value="12">Class 12</option>
+                            <option value="11">Class 11</option>
+                            <option value="10">Class 10</option>
+                            <option value="9">Class 9</option>
+                        </select>
+                    </div>
+
+                    <div class="select-box">
+                        <label data-i18n="boardLabel">Board</label>
+                        <select id="practiceBoard">
+                            <option>BSEB</option>
+                            <option>CBSE</option>
+                            <option>JEE Main</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="select-box">
+                        <label data-i18n="subjectLabel">Subject</label>
+                        <select id="practiceSubject">
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="math">Mathematics</option>
+                        </select>
+                    </div>
+
+                    <div class="select-box">
+                        <label for="practiceMedium">Medium</label>
+                        <select id="practiceMedium"><option value="en">English</option><option value="hi">Hindi</option></select>
+                    </div>
+                    <div class="select-box">
+                        <label for="practiceSource">Question source</label>
+                        <select id="practiceSource"><option value="saved">Saved question bank</option><option value="ai">Generate with AI</option></select>
+                    </div>
+                </div>
+                <p class="section-subtitle" style="margin-top:8px">AI-generated questions are practice questions, not verified original PYQs.</p>
+
+                <div class="selector-actions">
+
+                    <label class="form-label" for="practiceCount">
+                        <span data-i18n="questions">Questions</span>
+                    </label>
+
+                    <select id="practiceCount" class="question-count">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+
+                    <button
+                        id="startPracticeBtn"
+                        class="btn btn-white"
+                        type="button"
+                        data-i18n="startPractice"
+                    >
+                        Start Practice
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="section-head">
+                <div>
+                    <div class="section-title" data-i18n="chapters">
+                        Chapters
+                    </div>
+                    <div class="section-subtitle">
+                        Choose a chapter to begin.
+                    </div>
+                </div>
+            </div>
+
+            <div id="chapterGrid" class="chapter-grid"></div>
+
+        </section>
+
+        <!-- ======================================================
+             TEST MODE
+             ====================================================== -->
+
+        <section id="page-test" class="page">
+
+            <div id="testSetup">
+
+                <div class="section-head">
+                    <div>
+                        <div class="section-title" data-i18n="mockTestHeading">
+                            Mock Test
+                        </div>
+                        <div class="section-subtitle" data-i18n="mockTestSub">
+                            Configure your test and challenge yourself.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selector-panel">
+
+                    <div class="selector-grid">
+
+                        <div class="select-box">
+                            <label data-i18n="classLabel">Class</label>
+                            <select id="testClass">
+                                <option value="12">Class 12</option>
+                                <option value="11">Class 11</option>
+                                <option value="10">Class 10</option>
+                                <option value="9">Class 9</option>
+                            </select>
+                        </div>
+
+                        <div class="select-box">
+                            <label data-i18n="boardLabel">Board</label>
+                            <select id="testBoard">
+                                <option>BSEB</option>
+                                <option>CBSE</option>
+                                <option>JEE Main</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="select-box">
+                            <label data-i18n="subjectLabel">Subject</label>
+                            <select id="testSubject">
+                                <option value="mixed">Mixed</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="math">Mathematics</option>
+                            </select>
+                        </div>
+
+                        <div class="select-box">
+                            <label for="testMedium">Medium</label>
+                            <select id="testMedium"><option value="en">English</option><option value="hi">Hindi</option></select>
+                        </div>
+                        <div class="select-box">
+                            <label for="testSource">Question source</label>
+                            <select id="testSource"><option value="saved">Saved question bank</option><option value="ai">Generate with AI</option></select>
+                        </div>
+                    </div>
+                    <p class="section-subtitle" style="margin-top:8px">AI-generated questions are practice questions, not verified original PYQs.</p>
+
+                    <div class="selector-actions">
+
+                        <label class="form-label">
+                            <span data-i18n="questions">Questions</span>
+                        </label>
+
+                        <select id="testCount" class="question-count">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50" selected>50</option>
+                        </select>
+
+                        <select id="testMinutes" class="question-count">
+                            <option value="10">10m</option>
+                            <option value="20">20m</option>
+                            <option value="30" selected>30m</option>
+                            <option value="60">60m</option>
+                        </select>
+
+                        <button
+                            id="startTestBtn"
+                            class="btn btn-white"
+                            type="button"
+                            data-i18n="startTest"
+                        >
+                            Start Test
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="testRunner" class="test-page hidden">
+
+                <div class="test-top">
+
+                    <div class="test-progress-wrap">
+                        <div class="test-progress-label">
+                            <span id="testProgressText">Question 1 of 10</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="testProgress" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div id="testTimer" class="timer">
+                        30:00
+                    </div>
+
+                </div>
+
+                <div class="question-card">
+
+                    <div class="question-meta">
+                        <span id="questionSubject">Physics</span>
+                        <span id="questionNumber" class="question-number">
+                            Q1
+                        </span>
+                    </div>
+
+                    <div id="questionText" class="question-text">
+                        Question goes here.
+                    </div>
+
+                    <div id="options" class="options"></div>
+
+                    <div class="test-controls">
+
+                        <button
+                            id="prevQuestionBtn"
+                            class="btn btn-dark"
+                            type="button"
+                            data-i18n="previous"
+                        >
+                            Previous
+                        </button>
+
+                        <button
+                            id="nextQuestionBtn"
+                            class="btn btn-white"
+                            type="button"
+                            data-i18n="next"
+                        >
+                            Next
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="questionDots" class="question-dots"></div>
+
+                <div style="margin-top:15px;text-align:center;">
+                    <button
+                        id="submitTestBtn"
+                        class="btn btn-dark"
+                        type="button"
+                        data-i18n="submitTest"
+                    >
+                        Submit Test
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="resultView" class="hidden">
+
+                <div class="result-card">
+
+                    <div class="result-ring">
+                        <div id="resultPercent" class="result-percent">0%</div>
+                    </div>
+
+                    <div id="resultTitle" class="result-title">
+                        Test Complete
+                    </div>
+
+                    <div id="resultText" class="result-text">
+                        Great effort. Review your mistakes and try again.
+                    </div>
+
+                    <div class="result-stats">
+
+                        <div class="result-stat">
+                            <strong id="resultCorrect">0</strong>
+                            <span data-i18n="correct">Correct</span>
+                        </div>
+
+                        <div class="result-stat">
+                            <strong id="resultWrong">0</strong>
+                            <span data-i18n="wrong">Wrong</span>
+                        </div>
+
+                        <div class="result-stat">
+                            <strong id="resultSkipped">0</strong>
+                            <span data-i18n="skipped">Skipped</span>
+                        </div>
+
+                    </div>
+
+                    <button
+                        id="resultHomeBtn"
+                        class="btn btn-white"
+                        type="button"
+                        data-i18n="backDashboard"
+                    >
+                        Back to Dashboard
+                    </button>
+
+                    <button
+                        id="resultAgainBtn"
+                        class="btn btn-dark"
+                        type="button"
+                        data-i18n="tryAgain"
+                        style="margin-left:6px;"
+                    >
+                        Try Again
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="page-admin" class="page">
+            <div class="section-head"><div><div class="section-title">Admin Questions</div><div class="section-subtitle">PYQ और अपने बनाए हुए questions यहाँ add करो।</div></div></div>
+            <div class="admin-builder">
+              <div class="admin-builder-top">
+                <div><span class="admin-badge">OWNER PANEL</span><h3>Question Builder</h3><p>Question save करते ही वह PYQ Test में चला जाएगा।</p></div>
+                <div class="admin-tip">4 options अनिवार्य हैं</div>
+              </div>
+              <form id="adminQuestionForm" class="admin-form">
+                <div class="admin-grid">
+                  <label>Board<select id="aqBoard" required><option value="BSEB">BSEB</option><option value="CBSE">CBSE</option></select></label>
+                  <label>Class<select id="aqClass" required><option value="10">Class 10</option><option value="12">Class 12</option></select></label>
+                  <label>Subject<input id="aqSubject" placeholder="Physics / Chemistry / Maths" required></label>
+                  <label>Chapter<input id="aqChapter" placeholder="Chapter name" required></label>
+                  <label>PYQ Year<input id="aqYear" type="number" min="2000" max="2100" placeholder="2024" required></label>
+                  <label>Question type<select id="aqType"><option value="PYQ">PYQ</option><option value="Custom">My Own Question</option></select></label>
+                </div>
+                <label>Question<textarea id="aqQuestion" rows="3" placeholder="पूरा question यहाँ लिखो..." required></textarea></label>
+                <div class="options-heading"><h4>Four Options</h4><span>A, B, C, D</span></div>
+                <div class="admin-grid options-grid">
+                  <label>Option A<input id="aqOptionA" required placeholder="पहला option"></label>
+                  <label>Option B<input id="aqOptionB" required placeholder="दूसरा option"></label>
+                  <label>Option C<input id="aqOptionC" required placeholder="तीसरा option"></label>
+                  <label>Option D<input id="aqOptionD" required placeholder="चौथा option"></label>
+                </div>
+                <div class="admin-grid">
+                  <label>Correct answer<select id="aqCorrect" required><option value="0">Option A</option><option value="1">Option B</option><option value="2">Option C</option><option value="3">Option D</option></select></label>
+                  <label>Explanation <span class="optional">(optional)</span><input id="aqExplanation" placeholder="Answer का छोटा explanation"></label>
+                </div>
+                <button class="btn btn-dark admin-save-btn" type="submit">＋ Save Question to PYQ Test</button>
+                <p id="aqStatus" class="admin-status"></p>
+              </form>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             PYQ TEST
+             ====================================================== -->
+        <section id="page-pyq" class="page">
+            <div class="section-head">
+                <div>
+                    <div class="section-title">PYQ Test</div>
+                    <div class="section-subtitle">Class, board, subject और year चुनकर PYQ test शुरू करो।</div>
+                </div>
+            </div>
+            <div class="selector-panel">
+                <div class="selector-grid">
+                    <div class="select-box"><label>Class</label><select id="pyqClass"><option value="12">Class 12</option><option value="10">Class 10</option></select></div>
+                    <div class="select-box"><label>Board</label><select id="pyqBoard"><option value="BSEB">BSEB</option><option value="CBSE">CBSE</option></select></div>
+                    <div class="select-box"><label>Subject</label><select id="pyqSubject"><option value="physics">Physics</option><option value="chemistry">Chemistry</option><option value="math">Mathematics</option><option value="science">Science</option><option value="social">Social Science</option><option value="hindi">Hindi</option><option value="english">English</option></select></div>
+                    <div class="select-box"><label>Medium</label><select id="pyqMedium"><option value="en">English</option><option value="hi">Hindi</option></select></div>
+                    <div class="select-box"><label>Year</label><select id="pyqYear"><option value="all">All Years</option></select></div>
+                    <div class="select-box"><label>Questions</label><select id="pyqCount"><option value="10">10</option><option value="25">25</option><option value="50">50</option></select></div>
+                </div>
+                <button class="btn btn-dark" id="startPyqBtn" type="button">Start PYQ Test</button>
+                <div id="pyqInfo" class="section-subtitle" style="margin-top:12px">Questions loading...</div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+             PROFILE
+             ====================================================== -->
+
+        <section id="page-profile" class="page">
+
+            <div class="section-head">
+                <div>
+                    <div class="section-title" data-i18n="profileHeading">
+                        Profile
+                    </div>
+                    <div class="section-subtitle">
+                        Your Mockifyy learning profile.
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-header">
+
+                <div id="largeAvatar" class="avatar-large">V</div>
+
+                <div>
+                    <div id="profileName" class="profile-name">
+                        Ved Prakash
+                    </div>
+                    <div id="profileEmail" class="profile-email">
+                        demo@mockifyy.app
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="profile-grid">
+
+                <div class="setting-card">
+
+                    <div class="setting-title" data-i18n="academic">
+                        Academic Details
+                    </div>
+
+                    <div class="setting-description">
+                        Select your preferred study context.
+                    </div>
+
+                    <div class="setting-row">
+                        <span class="setting-label" data-i18n="classLabel">
+                            Class
+                        </span>
+                        <select id="profileClass" class="question-count">
+                            <option value="12">Class 12</option>
+                            <option value="11">Class 11</option>
+                            <option value="10">Class 10</option>
+                            <option value="9">Class 9</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-row">
+                        <span class="setting-label" data-i18n="boardLabel">
+                            Board
+                        </span>
+                        <select id="profileBoard" class="question-count">
+                            <option>BSEB</option>
+                            <option>CBSE</option>
+                            <option>JEE Main</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <button
+                        id="saveProfileBtn"
+                        class="btn btn-white"
+                        type="button"
+                        data-i18n="saveChanges"
+                        style="margin-top:14px;"
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+                <div class="setting-card">
+
+                    <div class="setting-title" data-i18n="accountStats">
+                        Account Stats
+                    </div>
+
+                    <div class="setting-description">
+                        Automatically updated from your practice activity.
+                    </div>
+
+                    <div class="setting-row">
+                        <span class="setting-label" data-i18n="questionsSolved">
+                            Questions Solved
+                        </span>
+                        <span id="profileQuestions" class="setting-value">0</span>
+                    </div>
+
+                    <div class="setting-row">
+                        <span class="setting-label" data-i18n="testsCompleted">
+                            Tests Completed
+                        </span>
+                        <span id="profileTests" class="setting-value">0</span>
+                    </div>
+
+                    <div class="setting-row">
+                        <span class="setting-label" data-i18n="accuracy">
+                            Accuracy
+                        </span>
+                        <span id="profileAccuracy" class="setting-value">0%</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================================
+             PRIVACY
+             ====================================================== -->
+
+        <section id="page-privacy" class="page">
+
+            <div class="section-head">
+                <div>
+                    <div class="section-title" data-i18n="privacyHeading">
+                        Privacy Policy
+                    </div>
+                    <div class="section-subtitle">
+                        Simple and transparent.
+                    </div>
+                </div>
+            </div>
+
+            <div class="policy-card">
+
+                <h2>1. Introduction</h2>
+
+                <p>
+                    Mockifyy is designed to help students practice multiple-choice
+                    questions and take mock tests. This starter version stores
+                    demo account and progress information locally in the browser.
+                </p>
+
+                <h2>2. Information</h2>
+
+                <p>
+                    The current demo may store your name, email, selected class,
+                    selected board and learning statistics in local browser storage.
+                    No real server account is created by this standalone file.
+                </p>
+
+                <h2>3. How information is used</h2>
+
+                <ul>
+                    <li>To display your profile.</li>
+                    <li>To remember your academic preferences.</li>
+                    <li>To calculate practice and test statistics.</li>
+                    <li>To keep the demo experience consistent between sessions.</li>
+                </ul>
+
+                <h2>4. Security</h2>
+
+                <p>
+                    This standalone demo is not a production authentication system.
+                    Do not use real passwords in this demo. A production release
+                    should use a secure authentication provider such as Firebase
+                    Authentication and a properly secured database.
+                </p>
+
+                <h2>5. Future production version</h2>
+
+                <p>
+                    Before public launch, Mockifyy should add server-side
+                    authentication, database security rules, proper consent,
+                    account deletion, secure question APIs and production privacy
+                    documentation.
+                </p>
+
+                <h2>6. Contact</h2>
+
+                <p>
+                    Product: Mockifyy<br>
+                    Founder: Ved Prakash
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* ============================================================
+   MOCKIFYY APPLICATION
+   Pure JavaScript — no external libraries
+   ============================================================ */
+
+"use strict";
+
+/* ============================================================
+   TRANSLATIONS
+   ============================================================ */
+
+const translations = {
+
+    en: {
+
+        menu: "Menu",
+        dashboard: "Dashboard",
+        practice: "Chapter Practice",
+        testMode: "Test Mode",
+        account: "Account",
+        profile: "Profile",
+        privacy: "Privacy Policy",
+        logout: "↪ Logout",
+
+        dailyMotivation: "Daily Motivation",
+        startPractice: "Start Practice",
+        takeMock: "Take Mock Test",
+
+        yourProgress: "Your Progress",
+        progressSubtitle: "Keep showing up. Small wins become big results.",
+        questionsSolved: "Questions Solved",
+        accuracy: "Accuracy",
+        testsCompleted: "Tests Completed",
+        dayStreak: "Day Streak",
+
+        chooseMode: "Choose your mode",
+        chooseModeSub: "Practice without pressure or simulate the real test.",
+        chapterPracticeTitle: "Chapter-wise Practice",
+        chapterPracticeText: "Pick a subject and chapter, then practice MCQs at your own pace.",
+        testModeTitle: "Test Mode",
+        testModeText: "Random questions, countdown timer and a score at the end.",
+
+        practiceHeading: "Chapter-wise Practice",
+        practiceSub: "Select your subject and chapter.",
+        classLabel: "Class",
+        boardLabel: "Board",
+        subjectLabel: "Subject",
+        questions: "Questions",
+        chapters: "Chapters",
+
+        mockTestHeading: "Mock Test",
+        mockTestSub: "Configure your test and challenge yourself.",
+        startTest: "Start Test",
+        previous: "Previous",
+        next: "Next",
+        submitTest: "Submit Test",
+
+        correct: "Correct",
+        wrong: "Wrong",
+        skipped: "Skipped",
+        backDashboard: "Back to Dashboard",
+        tryAgain: "Try Again",
+
+        profileHeading: "Profile",
+        academic: "Academic Details",
+        accountStats: "Account Stats",
+        saveChanges: "Save Changes"
+
+    },
+
+    hi: {
+
+        menu: "मेन्यू",
+        dashboard: "डैशबोर्ड",
+        practice: "अध्याय अभ्यास",
+        testMode: "टेस्ट मोड",
+        account: "अकाउंट",
+        profile: "प्रोफाइल",
+        privacy: "प्राइवेसी पॉलिसी",
+        logout: "↪ लॉग आउट",
+
+        dailyMotivation: "आज की प्रेरणा",
+        startPractice: "अभ्यास शुरू करें",
+        takeMock: "मॉक टेस्ट दें",
+
+        yourProgress: "आपकी प्रगति",
+        progressSubtitle: "हर दिन थोड़ा आगे बढ़ें। छोटी जीत बड़ी सफलता बनती है।",
+        questionsSolved: "हल किए प्रश्न",
+        accuracy: "सटीकता",
+        testsCompleted: "पूरे किए टेस्ट",
+        dayStreak: "दिन की स्ट्रीक",
+
+        chooseMode: "अपना मोड चुनें",
+        chooseModeSub: "बिना दबाव अभ्यास करें या असली टेस्ट जैसा अनुभव लें।",
+        chapterPracticeTitle: "अध्याय अनुसार अभ्यास",
+        chapterPracticeText: "विषय और अध्याय चुनें और अपनी गति से MCQ हल करें।",
+        testModeTitle: "टेस्ट मोड",
+        testModeText: "रैंडम प्रश्न, टाइमर और अंत में आपका स्कोर।",
+
+        practiceHeading: "अध्याय अनुसार अभ्यास",
+        practiceSub: "विषय और अध्याय चुनें।",
+        classLabel: "कक्षा",
+        boardLabel: "बोर्ड",
+        subjectLabel: "विषय",
+        questions: "प्रश्न",
+        chapters: "अध्याय",
+
+        mockTestHeading: "मॉक टेस्ट",
+        mockTestSub: "अपना टेस्ट सेट करें और खुद को चुनौती दें।",
+        startTest: "टेस्ट शुरू करें",
+        previous: "पिछला",
+        next: "अगला",
+        submitTest: "टेस्ट जमा करें",
+
+        correct: "सही",
+        wrong: "गलत",
+        skipped: "छोड़े गए",
+        backDashboard: "डैशबोर्ड पर जाएँ",
+        tryAgain: "फिर से प्रयास करें",
+
+        profileHeading: "प्रोफाइल",
+        academic: "शैक्षणिक जानकारी",
+        accountStats: "अकाउंट आँकड़े",
+        saveChanges: "बदलाव सेव करें"
+
+    }
+
+};
+
+/* ============================================================
+   MOTIVATION QUOTES
+   ============================================================ */
+
+const quotes = {
+
+    en: [
+        "Success is built one focused question at a time.",
+        "Your future is created by what you practice today.",
+        "Consistency beats intensity when the goal is big.",
+        "Do not wait for motivation. Build the habit.",
+        "One more question. One more concept. One step closer.",
+        "Study quietly. Let your result make the noise.",
+        "Small progress every day becomes a powerful advantage.",
+        "Your only competition is the version of you from yesterday.",
+        "Learn it. Practice it. Test it. Repeat.",
+        "Discipline is choosing your goal over your mood."
+    ],
+
+    hi: [
+        "सफलता एक-एक ध्यान से किए गए प्रश्न से बनती है।",
+        "आज की पढ़ाई ही तुम्हारा आने वाला कल बनाती है।",
+        "बड़ा लक्ष्य हो तो लगातार प्रयास सबसे बड़ी ताकत है।",
+        "मोटिवेशन का इंतज़ार मत करो, आदत बनाओ।",
+        "एक प्रश्न और, एक कॉन्सेप्ट और, मंज़िल के एक कदम करीब।",
+        "शांत रहकर पढ़ो, रिजल्ट को शोर करने दो।",
+        "हर दिन की छोटी प्रगति बड़ा फायदा बन जाती है।",
+        "तुम्हारी असली प्रतियोगिता कल वाले तुमसे है।",
+        "सीखो। अभ्यास करो। टेस्ट दो। फिर दोहराओ।",
+        "अनुशासन मतलब मूड से ऊपर अपने लक्ष्य को चुनना।"
+    ]
+
+};
+
+/* ============================================================
+   QUESTION BANK
+   Starter questions only.
+   Later this object can be replaced by API/Firebase data.
+   ============================================================ */
+
+const questionBank = [
+
+    {
+        id: 1,
+        subject: "physics",
+        chapter: "Units & Measurements",
+        text: "Which physical quantity is measured in the SI unit metre?",
+        options: [
+            "Mass",
+            "Length",
+            "Time",
+            "Temperature"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 2,
+        subject: "physics",
+        chapter: "Units & Measurements",
+        text: "What is the SI unit of time?",
+        options: [
+            "Minute",
+            "Hour",
+            "Second",
+            "Day"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 3,
+        subject: "physics",
+        chapter: "Units & Measurements",
+        text: "How many significant figures are present in 0.00520?",
+        options: [
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 4,
+        subject: "physics",
+        chapter: "Kinematics",
+        text: "Velocity is defined as the rate of change of:",
+        options: [
+            "Distance",
+            "Displacement",
+            "Acceleration",
+            "Force"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 5,
+        subject: "physics",
+        chapter: "Kinematics",
+        text: "The slope of a displacement-time graph represents:",
+        options: [
+            "Acceleration",
+            "Force",
+            "Velocity",
+            "Momentum"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 6,
+        subject: "physics",
+        chapter: "Kinematics",
+        text: "If an object is at rest, its velocity is:",
+        options: [
+            "1 m/s",
+            "Zero",
+            "9.8 m/s",
+            "Infinite"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 7,
+        subject: "physics",
+        chapter: "Newton's Laws",
+        text: "Newton's second law relates force with:",
+        options: [
+            "Mass and acceleration",
+            "Distance and time",
+            "Charge and current",
+            "Pressure and volume"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 8,
+        subject: "physics",
+        chapter: "Newton's Laws",
+        text: "The SI unit of force is:",
+        options: [
+            "Joule",
+            "Watt",
+            "Newton",
+            "Pascal"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 9,
+        subject: "physics",
+        chapter: "Work Energy Power",
+        text: "The SI unit of work is:",
+        options: [
+            "Joule",
+            "Newton",
+            "Watt",
+            "Volt"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 10,
+        subject: "physics",
+        chapter: "Work Energy Power",
+        text: "Power is the rate of doing:",
+        options: [
+            "Force",
+            "Work",
+            "Momentum",
+            "Acceleration"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 11,
+        subject: "chemistry",
+        chapter: "Some Basic Concepts",
+        text: "One mole contains approximately:",
+        options: [
+            "6.022 × 10²³ particles",
+            "3.011 × 10²³ particles",
+            "9.8 × 10²³ particles",
+            "1.6 × 10⁻¹⁹ particles"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 12,
+        subject: "chemistry",
+        chapter: "Some Basic Concepts",
+        text: "The SI unit of amount of substance is:",
+        options: [
+            "Gram",
+            "Mole",
+            "Litre",
+            "Kilogram"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 13,
+        subject: "chemistry",
+        chapter: "Structure of Atom",
+        text: "The negatively charged particle in an atom is:",
+        options: [
+            "Proton",
+            "Neutron",
+            "Electron",
+            "Nucleus"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 14,
+        subject: "chemistry",
+        chapter: "Structure of Atom",
+        text: "Atomic number represents the number of:",
+        options: [
+            "Neutrons",
+            "Protons",
+            "Nucleons",
+            "Shells"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 15,
+        subject: "chemistry",
+        chapter: "Chemical Bonding",
+        text: "Atoms generally form chemical bonds to achieve:",
+        options: [
+            "A stable electronic configuration",
+            "Higher mass",
+            "More neutrons",
+            "A larger nucleus"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 16,
+        subject: "chemistry",
+        chapter: "Chemical Bonding",
+        text: "A bond formed by sharing of electron pairs is called:",
+        options: [
+            "Ionic bond",
+            "Covalent bond",
+            "Metallic bond",
+            "Hydrogen bond"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 17,
+        subject: "chemistry",
+        chapter: "Thermodynamics",
+        text: "The SI unit of energy is:",
+        options: [
+            "Joule",
+            "Calorie",
+            "Watt",
+            "Newton"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 18,
+        subject: "chemistry",
+        chapter: "Equilibrium",
+        text: "At chemical equilibrium, the forward and reverse reaction rates are:",
+        options: [
+            "Zero",
+            "Unequal",
+            "Equal",
+            "Infinite"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 19,
+        subject: "math",
+        chapter: "Sets",
+        text: "A set is a well-defined collection of:",
+        options: [
+            "Numbers only",
+            "Objects",
+            "Equations only",
+            "Angles only"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 20,
+        subject: "math",
+        chapter: "Sets",
+        text: "If A = {1, 2, 3}, how many elements does A contain?",
+        options: [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 21,
+        subject: "math",
+        chapter: "Relations & Functions",
+        text: "A function assigns each element of the domain to:",
+        options: [
+            "Exactly one element of the codomain",
+            "At least two elements",
+            "No element",
+            "Only zero"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 22,
+        subject: "math",
+        chapter: "Quadratic Equations",
+        text: "The general form of a quadratic equation is:",
+        options: [
+            "ax + b = 0",
+            "ax² + bx + c = 0",
+            "ax³ + bx² = 0",
+            "a/x = b"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 23,
+        subject: "math",
+        chapter: "Quadratic Equations",
+        text: "For ax² + bx + c = 0, the discriminant is:",
+        options: [
+            "b² + 4ac",
+            "b² - 4ac",
+            "4ac - b²",
+            "a² - 4bc"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 24,
+        subject: "math",
+        chapter: "Sequences",
+        text: "In an arithmetic progression, the difference between consecutive terms is:",
+        options: [
+            "Constant",
+            "Always zero",
+            "Always one",
+            "Variable"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 25,
+        subject: "math",
+        chapter: "Trigonometry",
+        text: "sin²θ + cos²θ is equal to:",
+        options: [
+            "0",
+            "1",
+            "2",
+            "sin θ"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 26,
+        subject: "physics",
+        chapter: "Current Electricity",
+        text: "The SI unit of electric current is:",
+        options: [
+            "Volt",
+            "Ohm",
+            "Ampere",
+            "Coulomb"
+        ],
+        answer: 2
+    },
+
+    {
+        id: 27,
+        subject: "physics",
+        chapter: "Electrostatics",
+        text: "The SI unit of electric charge is:",
+        options: [
+            "Coulomb",
+            "Ampere",
+            "Volt",
+            "Ohm"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 28,
+        subject: "physics",
+        chapter: "Ray Optics",
+        text: "The bending of light when it passes from one medium to another is called:",
+        options: [
+            "Reflection",
+            "Refraction",
+            "Diffraction",
+            "Dispersion"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 29,
+        subject: "chemistry",
+        chapter: "Chemical Kinetics",
+        text: "The rate of a chemical reaction describes how fast:",
+        options: [
+            "Temperature changes",
+            "Concentration changes",
+            "Mass becomes zero",
+            "Volume becomes infinite"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 30,
+        subject: "chemistry",
+        chapter: "Solutions",
+        text: "A homogeneous mixture of two or more components is called a:",
+        options: [
+            "Suspension",
+            "Solution",
+            "Precipitate",
+            "Element"
+        ],
+        answer: 1
+    },
+
+    {
+        id: 31,
+        subject: "math",
+        chapter: "Limits",
+        text: "A limit describes the value a function approaches as the input approaches a point.",
+        options: [
+            "True",
+            "False",
+            "Only for integers",
+            "Only for zero"
+        ],
+        answer: 0
+    },
+
+    {
+        id: 32,
+        subject: "math",
+        chapter: "Differentiation",
+        text: "The derivative of x² with respect to x is:",
+        options: [
+            "x",
+            "2x",
+            "x²",
+            "2"
+        ],
+        answer: 1
+    }
+
+];
+
+/* ============================================================
+   CHAPTER DATA
+   ============================================================ */
+
+const chapterData = {
+
+    physics: [
+        "Units & Measurements",
+        "Kinematics",
+        "Newton's Laws",
+        "Work Energy Power",
+        "Current Electricity",
+        "Electrostatics",
+        "Ray Optics"
+    ],
+
+    chemistry: [
+        "Some Basic Concepts",
+        "Structure of Atom",
+        "Chemical Bonding",
+        "Thermodynamics",
+        "Equilibrium",
+        "Chemical Kinetics",
+        "Solutions"
+    ],
+
+    math: [
+        "Sets",
+        "Relations & Functions",
+        "Quadratic Equations",
+        "Sequences",
+        "Trigonometry",
+        "Limits",
+        "Differentiation"
+    ]
+
+};
+
+/* ============================================================
+   APPLICATION STATE
+   ============================================================ */
+
+const state = {
+
+    language: localStorage.getItem("mockifyy_language") || "en",
+
+    currentPage: "dashboard",
+
+    authMode: "login",
+
+    currentUser: null,
+
+    selectedChapter: null,
+
+    testQuestions: [],
+
+    testAnswers: [],
+
+    currentQuestion: 0,
+
+    timerSeconds: 0,
+
+    timerInterval: null,
+
+    testStarted: false,
+
+    stats: {
+
+        questions: 0,
+
+        correct: 0,
+
+        tests: 0,
+
+        streak: 0
+
+    }
+
+};
+
+/* ============================================================
+   DOM HELPERS
+   ============================================================ */
+
+const $ = (selector) => document.querySelector(selector);
+
+const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+/* ============================================================
+   STORAGE
+   ============================================================ */
+
+function getUserKey() {
+
+    if (!state.currentUser) {
+
+        return "guest";
+
+    }
+
+    return state.currentUser.email
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, "_");
+
+}
+
+function loadStats() {
+
+    const key = "mockifyy_stats_" + getUserKey();
+
+    const saved = localStorage.getItem(key);
+
+    if (saved) {
+
+        try {
+
+            const parsed = JSON.parse(saved);
+
+            state.stats = {
+
+                questions: Number(parsed.questions) || 0,
+
+                correct: Number(parsed.correct) || 0,
+
+                tests: Number(parsed.tests) || 0,
+
+                streak: Number(parsed.streak) || 0
+
+            };
+
+        } catch (error) {
+
+            console.warn("Stats parse failed.");
+
+        }
+
+    }
+
+}
+
+function saveStats() {
+
+    const key = "mockifyy_stats_" + getUserKey();
+
+    localStorage.setItem(
+
+        key,
+
+        JSON.stringify(state.stats)
+
+    );
+
+}
+
+function loadPreferences() {
+
+    const key = "mockifyy_preferences_" + getUserKey();
+
+    const saved = localStorage.getItem(key);
+
+    if (!saved) {
+
+        return;
+
+    }
+
+    try {
+
+        const preferences = JSON.parse(saved);
+
+        if (preferences.class) {
+
+            $("#profileClass").value = preferences.class;
+
+            $("#practiceClass").value = preferences.class;
+
+            $("#testClass").value = preferences.class;
+
+        }
+
+        if (preferences.board) {
+
+            $("#profileBoard").value = preferences.board;
+
+            $("#practiceBoard").value = preferences.board;
+
+            $("#testBoard").value = preferences.board;
+
+        }
+
+    } catch (error) {
+
+        console.warn("Preferences parse failed.");
+
+    }
+
+}
+
+function savePreferences() {
+
+    const key = "mockifyy_preferences_" + getUserKey();
+
+    const preferences = {
+
+        class: $("#profileClass").value,
+
+        board: $("#profileBoard").value
+
+    };
+
+    localStorage.setItem(
+
+        key,
+
+        JSON.stringify(preferences)
+
+    );
+
+}
+
+/* ============================================================
+   AUTHENTICATION — DEMO
+   ============================================================ */
+
+function getStoredUsers() {
+
+    const saved = localStorage.getItem("mockifyy_users");
+
+    if (!saved) {
+
+        return [];
+
+    }
+
+    try {
+
+        return JSON.parse(saved);
+
+    } catch (error) {
+
+        return [];
+
+    }
+
+}
+
+function saveStoredUsers(users) {
+
+    localStorage.setItem(
+
+        "mockifyy_users",
+
+        JSON.stringify(users)
+
+    );
+
+}
+
+function showAuth(mode) {
+
+    state.authMode = mode;
+
+    const login = mode === "login";
+
+    $("#loginTab").classList.toggle("active", login);
+
+    $("#registerTab").classList.toggle("active", !login);
+
+    $("#authName").classList.toggle("hidden", login);
+
+    $("#authName").parentElement.classList.toggle("hidden", login);
+
+    $("#authTitle").textContent = login
+        ? "Welcome back."
+        : "Create your account.";
+
+    $("#authDescription").textContent = login
+        ? "Your premium space for MCQ practice and mock tests."
+        : "Start building your preparation with Mockifyy.";
+
+    $("#authSubmit").textContent = login
+        ? "Login to Mockifyy"
+        : "Create Mockifyy account";
+
+    $("#authError").textContent = "";
+
+}
+
+function handleAuthSubmit(event) {
+
+    event.preventDefault();
+
+    const email = $("#authEmail").value.trim();
+    const password = $("#authPassword").value;
+    const name = $("#authName").value.trim();
+
+    if (!email || !password) {
+        $("#authError").textContent = "Please enter email and password.";
+        return;
+    }
+
+    if (password.length < 6) {
+        $("#authError").textContent = "Password must contain at least 6 characters.";
+        return;
+    }
+
+    if (state.authMode === "register" && !name) {
+        $("#authError").textContent = "Please enter your name.";
+        return;
+    }
+
+    $("#authSubmit").disabled = true;
+    $("#authError").textContent = "Please wait...";
+
+    const action = state.authMode === "register"
+        ? fbAuth.createUserWithEmailAndPassword(email, password)
+        : fbAuth.signInWithEmailAndPassword(email, password);
+
+    action.then(async (result) => {
+        const user = result.user;
+        const profileRef = fbDb.collection("users").doc(user.uid);
+        const profile = await profileRef.get();
+
+        if (!profile.exists) {
+            await profileRef.set({
+                name: name || user.displayName || email.split("@")[0],
+                email: user.email,
+                premium: false,
+                freeTestUsed: false,
+                testsCompleted: 0,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+        }
+
+        state.currentUser = {
+            uid: user.uid,
+            name: name || user.displayName || email.split("@")[0],
+            email: user.email
+        };
+        enterApp();
+        showToast(state.authMode === "register" ? "Account created." : "Welcome back.");
+    }).catch((error) => {
+        const messages = {
+            "auth/email-already-in-use": "This email is already registered.",
+            "auth/invalid-email": "Please enter a valid email.",
+            "auth/invalid-credential": "Incorrect email or password.",
+            "auth/user-not-found": "Account not found.",
+            "auth/wrong-password": "Incorrect email or password."
+        };
+        $("#authError").textContent = messages[error.code] || error.message;
+    }).finally(() => {
+        $("#authSubmit").disabled = false;
+    });
+}
+
+function demoLogin() {
+    $("#authError").textContent = "Demo login is disabled. Please create an account.";
+}
+
+async function googleLogin() {
+    try {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const result = await fbAuth.signInWithPopup(provider);
+        const user = result.user;
+        const ref = fbDb.collection("users").doc(user.uid);
+        const snap = await ref.get();
+        if (!snap.exists) {
+            await ref.set({
+                name: user.displayName || user.email.split("@")[0],
+                email: user.email, premium: false, freeTestUsed: false,
+                testsCompleted: 0, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+        }
+        enterApp();
+        showToast("Google login successful.");
+    } catch (error) {
+        $("#authError").textContent = error.message;
+    }
+}
+
+function logout() {
+
+    stopTimer();
+
+    if (typeof fbAuth !== "undefined") fbAuth.signOut();
+
+    state.currentUser = null;
+
+    $("#appShell").classList.add("hidden");
+
+    $("#authScreen").classList.remove("hidden");
+
+    $("#authForm").reset();
+
+    showAuth("login");
+
+}
+
+/* ============================================================
+   ENTER APP
+   ============================================================ */
+
+function enterApp() {
+    const siteFooter = document.querySelector(".mockifyy-footer");
+    if (siteFooter) siteFooter.style.display = "block";
+
+    $("#authScreen").classList.add("hidden");
+
+    $("#appShell").classList.remove("hidden");
+
+    updateUserUI();
+    setupAdminPanel();
+
+    loadStats();
+
+    loadPreferences();
+
+    updateStatsUI();
+
+    setLanguage(state.language);
+
+    showPage("dashboard");
+
+    renderChapters();
+
+}
+
+function checkExistingSession() {
+    if (typeof fbAuth !== "undefined") {
+        fbAuth.onAuthStateChanged((user) => {
+            if (user) {
+                state.currentUser = { uid: user.uid, name: user.displayName || user.email.split("@")[0], email: user.email };
+                enterApp();
+            } else {
+                showAuth("login");
+            }
+        });
+    } else {
+        showAuth("login");
+    }
+}
+
+/* ============================================================
+   USER UI
+   ============================================================ */
+
+function getInitials(name) {
+
+    if (!name) {
+
+        return "M";
+
+    }
+
+    const words = name.trim().split(/\s+/);
+
+    if (words.length === 1) {
+
+        return words[0].charAt(0).toUpperCase();
+
+    }
+
+    return (
+
+        words[0].charAt(0) +
+
+        words[words.length - 1].charAt(0)
+
+    ).toUpperCase();
+
+}
+
+function updateUserUI() {
+
+    if (!state.currentUser) {
+
+        return;
+
+    }
+
+    const initials = getInitials(
+        state.currentUser.name
+    );
+
+    $("#profileMini").textContent = initials;
+
+    $("#largeAvatar").textContent = initials;
+
+    $("#profileName").textContent =
+        state.currentUser.name;
+
+    $("#profileEmail").textContent =
+        state.currentUser.email;
+
+}
+
+/* ============================================================
+   LANGUAGE
+   ============================================================ */
+
+function setLanguage(lang) {
+
+    if (!translations[lang]) {
+
+        lang = "en";
+
+    }
+
+    state.language = lang;
+
+    localStorage.setItem(
+        "mockifyy_language",
+        lang
+    );
+
+    document.documentElement.lang = lang === "hi"
+        ? "hi"
+        : "en";
+
+    $$("[data-i18n]").forEach(element => {
+
+        const key = element.dataset.i18n;
+
+        if (translations[lang][key]) {
+
+            element.textContent =
+                translations[lang][key];
+
+        }
+
+    });
+
+    $$(".lang-btn").forEach(button => {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.lang === lang
+        );
+
+    });
+
+    updateQuote();
+
+}
+
+function updateQuote() {
+
+    const list = quotes[state.language];
+
+    const index =
+        new Date().getDate() % list.length;
+
+    $("#quoteText").textContent = list[index];
+
+    $("#quoteAuthor").textContent =
+        state.language === "hi"
+            ? "— Mockifyy"
+            : "— Mockifyy";
+
+}
+
+/* ============================================================
+   PAGE NAVIGATION
+   ============================================================ */
+
+const pageTitles = {
+
+    dashboard: {
+
+        en: "Dashboard",
+
+        hi: "डैशबोर्ड"
+
+    },
+
+    practice: {
+
+        en: "Chapter Practice",
+
+        hi: "अध्याय अभ्यास"
+
+    },
+
+    test: {
+
+        en: "Test Mode",
+
+        hi: "टेस्ट मोड"
+
+    },
+
+    pyq: { en: "PYQ Test", hi: "PYQ टेस्ट" },
+
+    profile: {
+
+        en: "Profile",
+
+        hi: "प्रोफाइल"
+
+    },
+
+    admin: { en: "Admin Questions", hi: "एडमिन प्रश्न" },
+
+    privacy: {
+
+        en: "Privacy Policy",
+
+        hi: "प्राइवेसी पॉलिसी"
+
+    }
+
+};
+
+function showPage(page) {
+
+    if (!pageTitles[page]) {
+
+        page = "dashboard";
+
+    }
+
+    state.currentPage = page;
+
+    $$(".page").forEach(section => {
+
+        section.classList.toggle(
+            "active",
+            section.id === "page-" + page
+        );
+
+    });
+
+    $$(".nav-item").forEach(button => {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.page === page
+        );
+
+    });
+
+    $("#pageTitle").textContent =
+        pageTitles[page][state.language];
+
+    closeSidebar();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+function goToPage(page) {
+
+    if (page === "test") {
+
+        resetTestUI();
+
+    }
+
+    if (page === "pyq") {
+        refreshPyqYears();
+        updatePyqInfo();
+    }
+
+    showPage(page);
+
+}
+
+/* ============================================================
+   MOBILE SIDEBAR
+   ============================================================ */
+
+function openSidebar() {
+
+    $("#sidebar").classList.add("open");
+
+    $("#sidebarOverlay").classList.add("open");
+
+}
+
+function closeSidebar() {
+
+    $("#sidebar").classList.remove("open");
+
+    $("#sidebarOverlay").classList.remove("open");
+
+}
+
+/* ============================================================
+   STATS
+   ============================================================ */
+
+function getAccuracy() {
+
+    if (state.stats.questions <= 0) {
+
+        return 0;
+
+    }
+
+    return Math.round(
+        (state.stats.correct / state.stats.questions) * 100
+    );
+
+}
+
+function updateStatsUI() {
+
+    const accuracy = getAccuracy();
+
+    $("#statQuestions").textContent =
+        state.stats.questions;
+
+    $("#statAccuracy").textContent =
+        accuracy + "%";
+
+    $("#statTests").textContent =
+        state.stats.tests;
+
+    $("#statStreak").textContent =
+        state.stats.streak;
+
+    $("#profileQuestions").textContent =
+        state.stats.questions;
+
+    $("#profileTests").textContent =
+        state.stats.tests;
+
+    $("#profileAccuracy").textContent =
+        accuracy + "%";
+
+}
+
+/* ============================================================
+   CHAPTER RENDERING
+   ============================================================ */
+
+function renderChapters() {
+
+    const subject =
+        $("#practiceSubject").value;
+
+    const klass =
+        $("#practiceClass") ? $("#practiceClass").value : null;
+
+    const board =
+        $("#practiceBoard") ? $("#practiceBoard").value : null;
+
+    const chapters =
+        chapterData[subject] || [];
+
+    const grid = $("#chapterGrid");
+
+    grid.innerHTML = "";
+
+    chapters.forEach((chapter, index) => {
+
+        const available =
+            questionBank.filter(
+                question =>
+                    question.subject === subject &&
+                    question.chapter === chapter &&
+                    (!klass || normalizeClass(question.class) === normalizeClass(klass)) &&
+                    (!board || cleanBoard(question.board || board) === cleanBoard(board)) && questionLanguageAllowed(question, board === "CBSE" ? "en" : ($("#practiceMedium")?.value || "en"))
+            ).length;
+
+        const card =
+            document.createElement("article");
+
+        card.className =
+            "chapter-card";
+
+        card.dataset.chapter =
+            chapter;
+
+        card.innerHTML = `
+
+            <div class="chapter-top">
+
+                <div class="chapter-index">
+                    ${String(index + 1).padStart(2, "0")}
+                </div>
+
+                <div class="chapter-status">
+                    ${available} MCQs
+                </div>
+
+            </div>
+
+            <div class="chapter-name">
+                ${escapeHTML(chapter)}
+            </div>
+
+            <div class="chapter-meta">
+                ${subjectLabel(subject)}
+            </div>
+
+        `;
+
+        card.addEventListener(
+            "click",
+            () => selectChapter(chapter)
+        );
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+function selectChapter(chapter) {
+
+    state.selectedChapter = chapter;
+
+    $$(".chapter-card").forEach(card => {
+
+        card.classList.toggle(
+            "selected",
+            card.dataset.chapter === chapter
+        );
+
+    });
+
+    showToast(
+        `${chapter} selected`
+    );
+
+}
+
+function subjectLabel(subject) {
+
+    const map = {
+
+        physics: "Physics",
+        chemistry: "Chemistry",
+        math: "Mathematics",
+        hindi: "Hindi",
+        english: "English",
+        science: "Science",
+        social: "Social Science",
+        sanskrit: "Sanskrit",
+        biology: "Biology",
+        history: "History",
+        political_science: "Political Science",
+        geography: "Geography",
+        economics: "Economics"
+
+    };
+
+    return map[subject] || subject;
+
+}
+
+/* ============================================================
+   CLASS -> SUBJECT LIST (fixed, not dependent on live data)
+   ============================================================ */
+
+const CLASS_SUBJECTS = {
+    "10": ["science", "social", "math", "hindi", "sanskrit"],
+    "12": ["physics", "chemistry", "math", "biology", "history", "political_science", "geography", "economics"]
+};
+
+function refreshSubjectDropdown(classSelectId, subjectSelectId) {
+
+    const classEl = $("#" + classSelectId);
+    const subjectEl = $("#" + subjectSelectId);
+
+    if (!classEl || !subjectEl) return;
+
+    const klass = classEl.value;
+    const subjects = CLASS_SUBJECTS[klass] || [];
+
+    const includeMixed = subjectSelectId === "testSubject";
+
+    subjectEl.innerHTML =
+        (includeMixed ? `<option value="mixed">Mixed</option>` : "") +
+        subjects.map(s => `<option value="${s}">${subjectLabel(s)}</option>`).join("");
+
+}
+
+/* ============================================================
+   START PRACTICE
+   ============================================================ */
+
+async function startPractice() {
+    const subject = $("#practiceSubject").value;
+    const klass = $("#practiceClass") ? $("#practiceClass").value : "12";
+    const board = $("#practiceBoard") ? $("#practiceBoard").value : "BSEB";
+    const medium = board === "CBSE" ? "en" : ($("#practiceMedium")?.value || "en");
+    const chapter = state.selectedChapter || $("#chapterGrid .chapter-card.selected")?.dataset.chapter || "General";
+    const count = Number($("#practiceCount").value) || 10;
+    if ($("#practiceSource")?.value === "ai") {
+        try {
+            const generated = await generateAIQuestions({board, class:klass, subject, chapter, medium, count});
+            if (!generated.length) throw new Error("AI did not return valid questions");
+            beginQuestionSession(shuffle(generated).slice(0, count), false);
+        } catch (e) { console.error(e); showToast("AI questions नहीं बन पाए। Netlify function/API settings जाँचें।"); }
+        return;
+    }
+    if (!questionsLoaded) { showToast("Questions are still loading. Please wait."); return; }
+    let pool = questionBank.filter(q => normalizeClass(q.class) === normalizeClass(klass) && cleanBoard(q.board || board) === cleanBoard(board) && cleanSubject(q.subject) === cleanSubject(subject) && questionLanguageAllowed(q, medium) && (!chapter || chapter === "General" || q.chapter === chapter));
+    if (!pool.length && chapter !== "General") pool = questionBank.filter(q => normalizeClass(q.class) === normalizeClass(klass) && cleanBoard(q.board || board) === cleanBoard(board) && cleanSubject(q.subject) === cleanSubject(subject) && questionLanguageAllowed(q, medium));
+    if (!pool.length) { showToast("इस selection में saved questions नहीं मिले। Generate with AI चुनकर नया practice set बना सकते हो।"); return; }
+    beginQuestionSession(shuffle([...pool]).slice(0, Math.min(count, pool.length)), false);
+}
+
+function beginQuestionSession(
+    questions,
+    timed
+) {
+
+    state.testQuestions =
+        questions;
+
+    state.testAnswers =
+        new Array(questions.length).fill(null);
+
+    state.currentQuestion = 0;
+
+    state.testStarted = true;
+
+    if (timed) {
+
+        startTimer();
+
+    } else {
+
+        stopTimer();
+
+    }
+
+    $("#testSetup").classList.add("hidden");
+
+    $("#resultView").classList.add("hidden");
+
+    $("#testRunner").classList.remove("hidden");
+
+    showPage("test");
+
+    renderQuestion();
+
+}
+
+async function beginTest() {
+    let userProfile = {};
+    if (state.currentUser && state.currentUser.uid) {
+        try {
+            const profile = await fbDb.collection("users").doc(state.currentUser.uid).get();
+            userProfile = profile.exists ? profile.data() : {};
+        } catch (e) { console.warn("Could not read user test profile", e); }
+        if (!userProfile.premium && userProfile.freeTestUsed) { showToast("Free test used. Premium access is required for more tests."); return; }
+        if (!userProfile.premium) $("#testCount").value = "10";
+    }
+    const count = Number($("#testCount").value) || 10;
+    const subject = $("#testSubject").value;
+    const klass = $("#testClass") ? $("#testClass").value : "12";
+    const board = $("#testBoard") ? $("#testBoard").value : "BSEB";
+    const medium = board === "CBSE" ? "en" : ($("#testMedium")?.value || "en");
+    if ($("#testSource")?.value === "ai") {
+        try {
+            const generated = await generateAIQuestions({board, class:klass, subject, chapter:"General", medium, count});
+            if (!generated.length) throw new Error("AI did not return valid questions");
+            beginQuestionSession(shuffle(generated).slice(0, count), true);
+            return;
+        } catch (e) { console.error(e); showToast("AI questions नहीं बन पाए। Netlify function/API settings जाँचें।"); return; }
+    }
+    if (!questionsLoaded) { showToast("Questions are still loading — wait a moment and try again"); return; }
+    let pool = questionBank.filter(q => normalizeClass(q.class) === normalizeClass(klass) && cleanBoard(q.board || board) === cleanBoard(board) && (subject === "mixed" || cleanSubject(q.subject) === cleanSubject(subject)) && questionLanguageAllowed(q, medium));
+    if (!pool.length) { showToast("इस selection में saved questions नहीं मिले। Generate with AI चुनकर नया practice set बना सकते हो।"); return; }
+    beginQuestionSession(shuffle([...pool]).slice(0, Math.min(count, pool.length)), true);
+}
+
+/* ============================================================
+   VISIBILITY PROTECTION / TEST WARNING
+   ============================================================ */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (
+            document.hidden &&
+            state.testStarted
+        ) {
+
+            showToast(
+                state.language === "hi"
+                    ? "टेस्ट स्क्रीन छोड़ दी गई है।"
+                    : "Test screen was left."
+            );
+
+        }
+
+    }
+);
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+
+/* ============================================================
+   FIREBASE — LIVE QUESTION BANK
+   ============================================================ */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDnDE3uJ20Tl5sauQGq-E7LmqKQpmH84bA",
+  authDomain: "bseb-testhub.firebaseapp.com",
+  projectId: "bseb-testhub",
+  storageBucket: "bseb-testhub.firebasestorage.app",
+  messagingSenderId: "342826994671",
+  appId: "1:342826994671:web:d6a31e5b76e76b26c1c41a"
+};
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
+const fbDb = firebase.firestore();
+const fbAuth = firebase.auth();
+const fbStorage = firebase.storage();
+
+function initializeApp() {
+
+    showAuth("login");
+
+    setLanguage(state.language);
+
+    checkExistingSession();
+
+    refreshSubjectDropdown("practiceClass", "practiceSubject");
+    refreshSubjectDropdown("testClass", "testSubject");
+    refreshPyqYears();
+
+    loadQuestionsFromFirestore();
+
+}
+
+const savedTheme = localStorage.getItem("mockifyy_theme") || "dark";
+function applyTheme(theme){ document.body.classList.toggle("light", theme === "light"); localStorage.setItem("mockifyy_theme",theme); const b=document.getElementById("themeToggle"); if(b) b.textContent=theme === "light" ? "☾ Dark" : "☀ Light"; }
+document.addEventListener("DOMContentLoaded",()=>{ applyTheme(savedTheme); document.getElementById("themeToggle")?.addEventListener("click",()=>applyTheme(document.body.classList.contains("light")?"dark":"light")); });
+
+initializeApp();
+
+let questionsLoaded = false;
+
+function cleanSubject(v){
+    const x=String(v||"general").toLowerCase().trim().replace(/[-\s]+/g,"_");
+    const aliases={mathematics:"math", maths:"math", maths_:"math", social_science:"social", social_studies:"social", sst:"social", biology:"biology", politicalscience:"political_science", computer_science:"computer_science"};
+    return aliases[x] || x;
+}
+function cleanBoard(v){ const x=String(v||"BSEB").toUpperCase().trim(); return /BIHAR|BSEB/.test(x)?"BSEB":/CBSE|CENTRAL/.test(x)?"CBSE":x; }
+function hasHindiText(v){ return /[\u0900-\u097F]/.test(String(v||"")); }
+function questionLanguageAllowed(q, medium){
+    const text=[q.text||q.question||"", ...(Array.isArray(q.options)?q.options:[])].join(" ");
+    return medium === "hi" ? hasHindiText(text) : !hasHindiText(text);
+}
+function boardLanguageAllowed(q, board){ return cleanBoard(board) !== "CBSE" || questionLanguageAllowed(q,"en"); }
+function toQuestion(d, id, sourceDefault){
+    if (!d || typeof d !== "object") return null;
+    const text=d.question ?? d.text ?? d.questionText ?? d.q ?? d.prompt;
+    let raw=d.options ?? d.choices ?? d.answers;
+    if (!Array.isArray(raw) && raw && typeof raw === "object") raw=[raw.A??raw.a??raw.optionA,raw.B??raw.b??raw.optionB,raw.C??raw.c??raw.optionC,raw.D??raw.d??raw.optionD];
+    if (!Array.isArray(raw)) raw=[d.optionA,d.optionB,d.optionC,d.optionD];
+    const options=raw.map(x=>typeof x==="object" && x!==null ? (x.text??x.value??x.label??"") : String(x??"")).map(x=>String(x).trim());
+    if (!text || options.length!==4 || options.some(x=>!x)) return null;
+    let answer=d.correctIndex ?? d.answerIndex ?? d.answer ?? d.correct ?? d.correctAnswer ?? 0;
+    if (typeof answer === "string") {
+      const a=answer.trim().toUpperCase();
+      if (["A","B","C","D"].includes(a)) answer=["A","B","C","D"].indexOf(a);
+      else if (/^[1-4]$/.test(a)) answer=Number(a)-1;
+      else if (/^OPTION\s*[A-D]$/.test(a)) answer=a.slice(-1).charCodeAt(0)-65;
+      else answer=Number(answer);
+    }
+    answer=Number(answer); if (!Number.isInteger(answer)||answer<0||answer>3) answer=0;
+    return {id:id??d.id??("q_"+Math.random().toString(36).slice(2)),subject:cleanSubject(d.subject||d.subjectName||d.topic),chapter:String(d.chapter||d.chapterName||d.unit||"General"),text:String(text).trim(),options,answer,explanation:String(d.explanation||d.solution||""),class:normalizeClass(d.class??d.className??d.grade??"12"),board:cleanBoard(d.board||d.boardName||"BSEB"),year:String(d.year||d.examYear||"General"),type:String(d.type||d.questionType||d.source||sourceDefault||"AI Practice"),source:String(d.source||sourceDefault||"question_bank"),medium:d.medium|| (hasHindiText([text,...options].join(" "))?"hi":"en")};
+}
+async function loadQuestionsFromFirestore() {
+    const loaded=[]; const seen=new Set(); const errors=[];
+    const add=(d,id,src)=>{ const q=toQuestion(d,id,src); if(!q)return; const key=(q.board+"|"+q.class+"|"+q.subject+"|"+q.text+"|"+q.options.join("|" )).toLowerCase(); if(!seen.has(key)){seen.add(key);loaded.push(q);} };
+    try {
+        for (const name of ["pyq","questions","questionBank","questionbank","ai_questions","generated_questions"]) {
+            try { const snap=await fbDb.collection(name).get(); snap.forEach(doc=>add(doc.data(),doc.id,name==="pyq"?"PYQ": "Firestore")); }
+            catch(e){ errors.push("Firestore "+name+": "+(e.code||e.message||"error")); }
+        }
+        // Walk the complete Storage bucket recursively, not just /questions and one folder deep.
+        async function walkStorage(ref, depth=0){
+            if(depth>8) return;
+            const listing=await ref.listAll();
+            for(const item of listing.items){
+                if(!/\.(json|jsonl)$/i.test(item.name)) continue;
+                try {
+                    const url=await item.getDownloadURL();
+                    const response=await fetch(url,{cache:"no-store"});
+                    if(!response.ok) throw new Error("HTTP "+response.status);
+                    const body=await response.text(); let data;
+                    try { data=JSON.parse(body); } catch { data=body.split(/\r?\n/).filter(Boolean).map(line=>JSON.parse(line)); }
+                    const list=Array.isArray(data)?data:(data.questions||data.items||data.data|| (data.question||data.text?[data]:[]));
+                    if(Array.isArray(list)) list.forEach((d,i)=>add(d,"storage_"+item.fullPath+"_"+i,"Storage"));
+                } catch(e){ errors.push("Storage "+item.fullPath+": "+(e.code||e.message||"error")); }
+            }
+            for(const folder of listing.prefixes) await walkStorage(folder,depth+1);
+        }
+        try { await walkStorage(fbStorage.ref()); } catch(e){ errors.push("Storage listing: "+(e.code||e.message||"error")); }
+        // Keep bundled starter questions as a fallback and combine them with remote data.
+        const starter=[];
+        questionBank.forEach(q=>{ const normalized=toQuestion({...q,class:q.class||"12",board:q.board||"BSEB",type:q.type||"AI Practice"},q.id,"Starter"); if(normalized) starter.push(normalized); });
+        const combined=[...starter,...loaded]; const final=[]; const finalSeen=new Set();
+        combined.forEach(q=>{ const k=(q.board+"|"+q.class+"|"+q.subject+"|"+q.text+"|"+q.options.join("|")).toLowerCase(); if(!finalSeen.has(k)){finalSeen.add(k);final.push(q);} });
+        questionBank.length=0; questionBank.push(...final);
+        Object.keys(chapterData).forEach(k=>delete chapterData[k]);
+        questionBank.forEach(q=>{ if(!chapterData[q.subject]) chapterData[q.subject]=[]; if(!chapterData[q.subject].includes(q.chapter)) chapterData[q.subject].push(q.chapter); });
+        refreshSubjectDropdown("practiceClass","practiceSubject"); refreshSubjectDropdown("testClass","testSubject");
+        if($("#chapterGrid")) renderChapters(); refreshPyqYears(); updatePyqInfo();
+        questionsLoaded=true;
+        const remoteCount=loaded.length;
+        showToast(remoteCount ? `${remoteCount} Firebase/Storage questions loaded` : `Remote questions: 0. Check Storage Rules/path. ${starter.length} starter questions available.`);
+        if(errors.length) console.warn("Question source errors:",errors);
+    } catch(err){ console.error("Failed to load questions:",err); questionsLoaded=true; showToast("Questions load नहीं हो पाए; Firebase Storage Rules और JSON format जाँचें।"); }
+}
+
+async function generateAIQuestions({board, class:klass, subject, chapter="General", medium="en", count=10}){
+    const n=Math.max(1,Math.min(Number(count)||10,50));
+    const language=board==="CBSE"?"English":(medium==="hi"?"Hindi":"English");
+    const response=await fetch("/.netlify/functions/mockifyy-questions",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({board,class:klass,subject,chapter,medium:language,count:n})});
+    const payload=await response.json().catch(()=>({}));
+    if(!response.ok) throw new Error(payload.error||("AI endpoint HTTP "+response.status));
+    const rows=Array.isArray(payload.questions)?payload.questions:[];
+    return rows.map((d,i)=>toQuestion({...d,board,class:klass,subject,chapter,medium:language,year:"General",type:"AI Practice",source:"AI Practice"},"ai_"+Date.now()+"_"+i,"AI Practice")).filter(Boolean);
+}
+
+function normalizeClass(v){ return String(v || "").replace(/class\s*/i,"").trim(); }
+function isPyqQuestion(q){ return String(q.type||"").toLowerCase().includes("pyq") || String(q.source||"").toLowerCase().includes("pyq") || q.year && q.year !== "General"; }
+function getPyqPool(){
+    const c=$("#pyqClass").value, b=$("#pyqBoard").value, s=$("#pyqSubject").value, y=$("#pyqYear").value;
+    return questionBank.filter(q => normalizeClass(q.class)===c && String(q.board||"BSEB").toUpperCase()===b && q.subject===s && questionLanguageAllowed(q,$("#pyqMedium")?.value || "en") && boardLanguageAllowed(q,b) && isPyqQuestion(q) && (y==="all" || String(q.year||"General")===y));
+}
+function refreshPyqYears(){
+    const y=$("#pyqYear"); if(!y) return;
+    const c=$("#pyqClass").value,b=$("#pyqBoard").value,s=$("#pyqSubject").value;
+    const years=[...new Set(questionBank.filter(q=>normalizeClass(q.class)===c && String(q.board||"BSEB").toUpperCase()===b && q.subject===s && isPyqQuestion(q)).map(q=>String(q.year||"General")))].sort().reverse();
+    y.innerHTML='<option value="all">All Years</option>'+years.map(v=>`<option value="${escapeHTML(v)}">${escapeHTML(v)}</option>`).join("");
+}
+function updatePyqInfo(){
+    if(!$("#pyqInfo")) return;
+    const n=getPyqPool().length;
+    $("#pyqInfo").textContent=n+" PYQ questions available";
+}
+async function startPyqTest(){
+    if(!questionsLoaded){showToast("Questions loading...");return;}
+    const pool=getPyqPool();
+    if(!pool.length){showToast("इस selection में PYQ नहीं मिले");return;}
+    const selected=shuffle([...pool]).slice(0,Math.min(Number($("#pyqCount").value),pool.length));
+    beginQuestionSession(selected,true);
+}
+document.addEventListener("DOMContentLoaded",()=>{
+    ["pyqClass","pyqBoard","pyqSubject","pyqYear","pyqMedium"].forEach(id=>$("#"+id)?.addEventListener("change",()=>{refreshPyqYears();updatePyqInfo();}));
+    $("#startPyqBtn")?.addEventListener("click",startPyqTest);
+});
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+  [["practiceBoard","practiceMedium"],["testBoard","testMedium"],["pyqBoard","pyqMedium"]].forEach(([bid,mid])=>{
+    const b=document.getElementById(bid),m=document.getElementById(mid); if(!b||!m)return;
+    const sync=()=>{ if(b.value==="CBSE"){m.value="en";m.disabled=true;} else {m.disabled=false;} };
+    b.addEventListener("change",sync); sync();
+  });
+  ["practiceClass","practiceBoard","practiceSubject","practiceMedium"].forEach(id=>document.getElementById(id)?.addEventListener("change",()=>{state.selectedChapter=null; if(typeof renderChapters==="function")renderChapters();}));
+});
+
+/* ============================================================
+   FUTURE API PLACEHOLDER
+   ============================================================ */
+
+/*
+    FUTURE QUESTION API EXAMPLE:
+
+    async function loadQuestionsFromAPI() {
+
+        const response = await fetch(
+            "YOUR_API_URL"
+        );
+
+        const data = await response.json();
+
+        return data.questions;
+
+    }
+
+    IMPORTANT:
+    Do not put private API keys directly in this HTML file.
+    For production, use a secure backend / Firebase / server
+    and security rules.
+
+*/
+
+/* ============================================================
+   FUTURE FIREBASE PLACEHOLDER
+   ============================================================ */
+
+/*
+    Firebase integration can later replace the demo auth.
+
+    Suggested architecture:
+
+    Firebase Authentication
+            |
+            +---- Users
+            |
+            +---- Profiles
+            |
+            +---- Question Bank
+            |
+            +---- Test Attempts
+            |
+            +---- Results
+            |
+            +---- Admin Panel
+
+    This frontend intentionally has no Firebase secret/API
+    configuration so that the file runs directly in Acode.
+*/
+
+/* ============================================================
+   END OF APPLICATION LOGIC
+   ============================================================ */
+</script>
+
+<!--
+================================================================
+ MOCKIFYY QUICK NOTES
+
+ 1. Save this file as index.html.
+ 2. Open it in Acode.
+ 3. Use Acode preview/browser.
+ 4. Click "Use demo account".
+ 5. Dashboard opens.
+ 6. Use EN / HI to change language.
+ 7. Open Chapter Practice.
+ 8. Select subject/chapter.
+ 9. Start practice.
+ 10. Open Test Mode.
+ 11. Choose question count and timer.
+ 12. Start test.
+ 13. Answer questions.
+ 14. Submit and see result.
+
+ This is V1 frontend/demo architecture.
+
+ Production upgrades:
+ - Firebase Auth
+ - Firestore / database
+ - Admin dashboard
+ - Large question bank
+ - Real question API
+ - Secure user accounts
+ - Anti-cheating system
+ - Test attempt storage
+ - Leaderboards
+ - BSEB/JEE filters
+ - Class 9-12 content
+ - 50 lakh+ question architecture
+================================================================
+-->
+
+
+<style>
+.mockifyy-footer{display:none;margin-top:40px;padding:24px 16px;border-top:1px solid #333;text-align:center;color:#aaa;font-size:13px}.mockifyy-footer a{color:#fff;margin:0 8px;text-decoration:none;cursor:pointer}.legal-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;padding:25px;overflow:auto}.legal-box{max-width:760px;margin:30px auto;background:#111;color:#eee;border:1px solid #444;border-radius:14px;padding:25px;line-height:1.7}.legal-box h2{color:#fff}.legal-close{float:right;background:#fff;color:#000;border:0;border-radius:6px;padding:5px 10px;cursor:pointer}
+</style>
+
+<footer class="mockifyy-footer">
+  <div><strong>Mockifyy</strong> — Smart Practice. Better Preparation.</div>
+  <div style="margin-top:12px">
+    <a onclick="openLegal('about')">About Us</a> |
+    <a onclick="openLegal('contact')">Contact Us</a> |
+    <a onclick="openLegal('privacy')">Privacy Policy</a> |
+    <a onclick="openLegal('terms')">Terms & Conditions</a>
+  </div>
+  <div style="margin-top:12px">© 2026 Mockifyy. All rights reserved.</div>
+</footer>
+<div id="legalModal" class="legal-modal" onclick="if(event.target===this)closeLegal()">
+ <div class="legal-box"><button class="legal-close" onclick="closeLegal()">✕</button><div id="legalContent"></div></div>
+</div>
+<script>
+const legalPages={
+about:`<h2>About Us</h2><p><b>Mockifyy</b> is an online MCQ practice platform created by <b>Ved Prakash</b>.</p><p>Our goal is to help students practise concepts, improve accuracy and prepare in a simple and accessible way.</p><p>Mockifyy provides practice resources for <b>BSEB Class 10 and 12</b> and <b>CBSE Class 10 and 12</b> students.</p><p><b>Tagline:</b> Smart Practice. Better Preparation.</p>`,
+contact:`<h2>Contact Us</h2><p>For feedback, technical problems, content corrections or other queries, contact us at:</p><p><b>Email:</b> <a href="mailto:karzonai9@gmail.com" style="color:#fff">karzonai9@gmail.com</a></p><p>We try to review genuine queries and respond as soon as possible.</p>`,
+privacy:`<h2>Privacy Policy</h2><p>Mockifyy may collect information such as name, email address and practice progress when a user creates an account or uses the platform.</p><p>This information is used to provide login, save progress, improve the service and maintain account security.</p><p>We do not ask users to share passwords, OTPs or payment-card details through messages or email.</p><p>Third-party services such as authentication, hosting, analytics or advertising providers may process limited information according to their own policies.</p><p>For privacy questions or deletion requests, contact: <b>karzonai9@gmail.com</b>.</p>`,
+terms:`<h2>Terms & Conditions</h2><p>By using Mockifyy, you agree to use the platform lawfully and respectfully.</p><p>Practice questions and explanations are provided for educational use. We do not guarantee a particular exam result or rank.</p><p>Users must not misuse the platform, attempt to damage it, copy restricted content, abuse test systems or create fake activity.</p><p>Features, question banks and access rules may change as the platform develops. Paid features, if introduced, will be shown clearly before payment.</p><p>For questions about these terms, contact: <b>karzonai9@gmail.com</b>.</p>`
+};
+function openLegal(page){document.getElementById('legalContent').innerHTML=legalPages[page]||'';document.getElementById('legalModal').style.display='block';document.body.style.overflow='hidden'}
+function closeLegal(){document.getElementById('legalModal').style.display='none';document.body.style.overflow=''}
+</script>
+
+
+<script>
+const ADMIN_EMAIL = "karzonai9@gmail.com";
+function isAdmin(){ return !!(state.currentUser && state.currentUser.email === ADMIN_EMAIL); }
+function setupAdminPanel(){
+  const nav = document.querySelector('[data-page="admin"]');
+  if(nav) nav.style.display = isAdmin() ? "flex" : "none";
+}
+async function saveAdminQuestion(e){
+ e.preventDefault();
+ if(!isAdmin()){ alert("Admin access only"); return; }
+ const options=["aqOptionA","aqOptionB","aqOptionC","aqOptionD"].map(id=>document.getElementById(id).value.trim());
+ if(options.some(x=>!x)){document.getElementById("aqStatus").textContent="चारों options भरो।";return;}
+ await fbDb.collection("pyq").add({question:document.getElementById("aqQuestion").value.trim(),options,correctIndex:Number(document.getElementById("aqCorrect").value),board:document.getElementById("aqBoard").value,class:document.getElementById("aqClass").value,subject:document.getElementById("aqSubject").value.trim(),year:document.getElementById("aqYear").value.trim(),chapter:document.getElementById("aqChapter").value.trim(),type:document.getElementById("aqType").value,explanation:document.getElementById("aqExplanation").value.trim(),source:"Admin",createdBy:state.currentUser.uid,createdAt:firebase.firestore.FieldValue.serverTimestamp()});
+ document.getElementById("aqStatus").textContent="Question successfully PYQ Test में save हो गया।"; e.target.reset();
+}
+document.addEventListener("DOMContentLoaded",()=>{ const f=document.getElementById("adminQuestionForm"); if(f) f.addEventListener("submit",saveAdminQuestion); setupAdminPanel(); });
+</script>
+
+</body>
+</html>
